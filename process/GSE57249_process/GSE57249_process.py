@@ -23,6 +23,12 @@ outpath = "../../%s/"%data
 if label:
     meta = pd.read_csv(outpath + data + '_meta.csv')
     GEO_Accession = meta['GEO_Accession (exp)']
+    
+    file = open(inpath + data + '_fpkm.txt')
+    lines = file.readlines()
+    file.close()
+    sample_name_list = lines[0].split()[1:]
+    
     cell_type_list = meta['Developmental_stage']
     cell_type_unique = ['zygote', 'Two-cell Embryo Blastomere', 
                         'Four-cell Embryo Blastomere', 
@@ -38,9 +44,16 @@ if label:
     Sample_Name_list = []
     Cell_type_list = []
     Cell_label_list = []
-    for idx in range(len(cell_type_list)):
+    for sample_idx, sample in enumerate(sample_name_list):
+        found = False
+        for idx, geo in enumerate(GEO_Accession):   #make sure that sample name and GEO ACC matches
+            if geo == sample:
+                found = True
+                
+        if found == False:
+            print('Sample Name does not match')
         cell_type = cell_type_list[idx]
-        if cell_type == '"inner cell mass\\_ from blastocyst"':
+        if cell_type == '"inner cell mass\\_ from blastocyst"':  #adjust the name of the cells
             cell_type = 'inner cell mass from blastocyst'
         elif cell_type == '"trophectoderm\\_ from blastocyst"':
             cell_type = 'trophectoderm from blastocyst'
