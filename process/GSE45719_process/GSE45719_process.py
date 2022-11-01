@@ -5,7 +5,6 @@ Created on Thu Oct 27 23:37:28 2022
 @author: yutah
 """
 
-import wget
 import gzip, os
 import numpy as np
 import csv, os
@@ -83,6 +82,7 @@ print('Number of cells:', N)
 #construct the gene list
 gene_list = []
 sample = Sample_Name_list[0]
+found = False
 for file in onlyfiles:
     if sample in file:
         found = True
@@ -93,10 +93,16 @@ raw_data_file = gzip.open(inpath + file, 'r')
 raw_data_lines = raw_data_file.readlines()
 raw_data_file.close()
 gene_list = []
+dup_gene = []
 for idx_raw, raw_data in enumerate(raw_data_lines):
     if idx_raw > 0: #first line is header
         raw_data = raw_data.split()[0]  #first column is the gene name
-        gene_list.append(raw_data.decode('utf-8').upper())
+        if raw_data.decode('utf-8').upper() not in gene_list:
+            gene_list.append(raw_data.decode('utf-8').upper())
+        else:
+            dup_gene.append(raw_data.decode('utf-8').upper() )
+
+print('Revmoved', len(dup_gene), 'due to duplicate')
 
 #Construct the data matrix
 M = len(gene_list)
@@ -112,15 +118,16 @@ for idx_cell in range(N):
     raw_data_file = gzip.open(inpath + file, 'r')
     raw_data_lines = raw_data_file.readlines()
     raw_data_file.close()
+    idx_gene = 0
     for idx_raw, raw_data in enumerate(raw_data_lines):
-        idx_gene = idx_raw - 1
         if idx_raw > 0: #first line is 
             raw_data = raw_data.split()
             gene = raw_data[0].decode('utf-8')
             if gene.upper() == gene_list[idx_gene]:
                 MATRIX[idx_gene, idx_cell] = float(raw_data[2].decode('utf-8'))
-            else:
-                print('Gene Does not match')
+                idx_gene += 1
+    if idx_gene != M:
+        print('ERROR: Some of the gene index is wrong')
 
 
 #################
@@ -140,7 +147,7 @@ file.close()
 cell_count =  {cell_type_unique[i]:0 for i in range(len(cell_type_unique))}
 Sample_Name_list = Sample_Name_list
 Cell_label_list = []
-for idx in range(len(Cell_type_list)):  #iterate over all the samples
+for idx in range(len(Cell_type_list)):  #iterate over all the snd(raw_data.decode('utf-8').upper())
     cell_type = Cell_type_list[idx]     #get the current cell type
     try:   #see if the cell type exist in the dictionary
         cell_label = cell_type_dict_rev[cell_type]
