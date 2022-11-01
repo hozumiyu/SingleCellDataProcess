@@ -2,11 +2,11 @@ This document contains the basic information of each data set
 #############################################################
 GSE45719
 M = 300
-N = 22957
+N = 22431
 K = 8
 Organism: Mouse
 
-Note: Zygote and liver cell was removed. 2-cell stage was merged into 1 big 2-cell stage
+Note: There are 527 duplicate genes. Zygote and liver cell was removed. 2-cell stage was merged into 1 big 2-cell stage class. There are 3 blastocyst stage, which may be merged into 1.
 
 Download: data + meta
 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE45719
