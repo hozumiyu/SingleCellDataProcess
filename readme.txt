@@ -209,3 +209,19 @@ Download: data + aux
 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE59114
 https://www.ncbi.nlm.nih.gov/geo/browse/?view=samples&series=59114
 https://www.ncbi.nlm.nih.gov/geo/browse/?view=samples&series=59114
+
+#############################################################
+GSE93593
+
+M = 8422
+N = 1428
+K = 5
+Organism= mouse
+
+Note: Save the tpm file. The cell name in the data file contains the label. First 3-4 letters are the labels (days)
+
+Download: data + aux
+https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA361254
+https://www.ncbi.nlm.nih.gov/geo/browse/?view=samples&series=93593
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE93593
+23045, 1733
