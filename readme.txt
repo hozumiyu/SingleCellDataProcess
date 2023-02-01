@@ -200,10 +200,10 @@ GSE59114
 
 M = 8422
 N = 1428
-K = 5
+K = 6
 Organism= mouse
 
-Note: Save the GSE59114_C57BL6_GEO_all.xlsx as a csv file, and remove first row
+Note: Save the GSE59114_C57BL6_GEO_all.xlsx as a csv file, and remove first row. Labels are old vs yound with 3 labels each. very balanced data
 
 Download: data + aux
 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE59114
@@ -213,15 +213,15 @@ https://www.ncbi.nlm.nih.gov/geo/browse/?view=samples&series=59114
 #############################################################
 GSE93593
 
-M = 8422
-N = 1428
-K = 5
+M = 23045
+N = 1733
+K = 4
 Organism= mouse
 
-Note: Save the tpm file. The cell name in the data file contains the label. First 3-4 letters are the labels (days)
+Note: Save the tpm file. The cell name in the data file contains the label. First 3-4 letters are the labels (days). very balanced data
 
 Download: data + aux
 https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA361254
 https://www.ncbi.nlm.nih.gov/geo/browse/?view=samples&series=93593
 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE93593
-23045, 1733
+
