@@ -194,3 +194,17 @@ Note: Mono- class were grouped into one class. There is also the characterizatio
 Download: data + aux
 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE94820
 https://www.ncbi.nlm.nih.gov/geo/browse/?view=samples&series=94820
+
+#############################################################
+GSE59114
+
+M = 8422
+N = 1428
+K = 5
+Organism= mouse
+
+Note: Save the GSE59114_C57BL6_GEO_all.xlsx as a csv file, and remove first row
+
+Download: data + aux
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE59114
+https://www.ncbi.nlm.nih.gov/geo/browse/?view=samples&series=59114
