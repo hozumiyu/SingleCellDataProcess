@@ -1,4 +1,8 @@
 This document contains the basic information of each data set
+SETUP: download the raw files from the GEO accession website, and save the file in process/RAW/
+Extract the data if it is a tar ball.
+
+
 #############################################################
 GSE45719
 M = 300
